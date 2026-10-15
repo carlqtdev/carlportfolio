@@ -57,8 +57,9 @@ Nothing else needs to change.
 - **Colours and fonts:** the token block at the top of `app/globals.css`. The
   light and dark ramps are defined in OKLCH; changing `--accent` in both blocks
   re-themes the entire site.
-- **Site URL, name, role, description:** `lib/site.ts`. Also set
-  `NEXT_PUBLIC_SITE_URL` in your hosting environment.
+- **Site URL, name, role, description:** `lib/site.ts`. `NEXT_PUBLIC_SITE_URL`
+  is only needed for a custom domain — on Vercel the build falls back to
+  `VERCEL_PROJECT_PRODUCTION_URL` automatically.
 
 ## Contact form
 
@@ -79,9 +80,11 @@ is a honeypot field and a best-effort in-memory rate limit; see
 
 1. Push the repository to GitHub.
 2. Import it at <https://vercel.com/new>.
-3. Add the environment variables from `.env.example`, with
-   `NEXT_PUBLIC_SITE_URL` set to your production domain.
-4. Deploy.
+3. Deploy. Canonical URLs, the sitemap and the OG image resolve themselves via
+   `VERCEL_PROJECT_PRODUCTION_URL`, so there is nothing to configure yet.
+4. Add the contact form variables from `.env.example` when you want the form to
+   send mail. Set `NEXT_PUBLIC_SITE_URL` only once you attach a custom domain;
+   it is inlined at build time, so changing it needs a redeploy.
 
 Or from the command line:
 
