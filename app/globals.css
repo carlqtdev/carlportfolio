@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* Class-based dark mode driven by next-themes (`.dark` on <html>). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Design tokens.
+  Neutral canvas + a single restrained teal accent. Values are in OKLCH so the
+  light and dark ramps stay perceptually even instead of drifting in hue.
+*/
+:root {
+  color-scheme: light;
+
+  --canvas: oklch(0.994 0.002 96);
+  --surface: oklch(0.975 0.003 96);
+  --elevated: oklch(0.955 0.004 96);
+
+  --ink: oklch(0.235 0.008 250);
+  --muted: oklch(0.505 0.01 250);
+  --faint: oklch(0.635 0.009 250);
+
+  --line: oklch(0.9 0.004 250);
+  --line-strong: oklch(0.83 0.006 250);
+
+  --accent: oklch(0.52 0.088 205);
+  --accent-strong: oklch(0.45 0.09 205);
+  --accent-soft: oklch(0.955 0.022 205);
+  --accent-contrast: oklch(0.995 0 0);
+  --ring: oklch(0.58 0.095 205);
+
+  --shadow-color: 250 12% 20%;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --canvas: oklch(0.168 0.007 258);
+  --surface: oklch(0.198 0.008 258);
+  --elevated: oklch(0.238 0.009 258);
+
+  --ink: oklch(0.945 0.004 250);
+  --muted: oklch(0.735 0.009 250);
+  --faint: oklch(0.605 0.01 250);
+
+  --line: oklch(0.285 0.009 258);
+  --line-strong: oklch(0.375 0.011 258);
+
+  --accent: oklch(0.775 0.1 197);
+  --accent-strong: oklch(0.835 0.1 197);
+  --accent-soft: oklch(0.3 0.045 205);
+  --accent-contrast: oklch(0.168 0.007 258);
+  --ring: oklch(0.72 0.1 197);
+
+  --shadow-color: 258 40% 2%;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--accent-soft);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* Only show a focus ring for keyboard users on pointer interactions. */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
