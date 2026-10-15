@@ -34,9 +34,6 @@ yarn-error.log*
 .env*
 !.env.example
 
-# personal source material — contains a phone number and address, do not publish
-/info.md
-
 # vercel
 .vercel
 
@@ -44,5 +41,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-.vercel
-.env*
+# local-only working material, never published
+/info.md
+/skills
