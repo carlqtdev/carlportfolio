@@ -65,7 +65,7 @@ export const profile = {
  * appears in both — the `icon` field picks the mark from `components/icons.tsx`.
  */
 export const socials: SocialItem[] = [
-  { label: "GitHub", href: "https://github.com/carldiv", icon: "github" },
+  { label: "GitHub", href: "https://github.com/carlqtdev", icon: "github" },
   { label: "Email", href: `mailto:${profile.email}`, icon: "mail" },
 ];
 
