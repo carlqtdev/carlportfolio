@@ -45,7 +45,7 @@ tagline, biography, skills, projects, education and email. The hero, about,
 projects, contact and résumé pages all read from it, so nothing else needs
 touching.
 
-Replace the example entries in `projects` with your real work. The projects
+Add more entries to the `projects` array as you build them. The projects
 section hides itself automatically if the array is empty, and there is still no
 employment history.
 

@@ -3,6 +3,7 @@ import { ExternalLinkIcon } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
 import { type ProjectItem, projects } from "@/content/profile";
+import { cn } from "@/lib/utils";
 
 function ProjectCard({ project }: { project: ProjectItem }) {
   const links = [
@@ -69,7 +70,10 @@ export function Projects() {
     >
       <ul className="grid gap-5 sm:grid-cols-2">
         {projects.map((project, index) => (
-          <li key={project.title}>
+          <li
+            key={project.title}
+            className={cn(projects.length === 1 && "sm:col-span-2")}
+          >
             <Reveal delay={index * 0.06} className="h-full">
               <ProjectCard project={project} />
             </Reveal>

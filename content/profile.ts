@@ -68,8 +68,9 @@ export const education: EducationItem[] = [
 ];
 
 /**
- * Replace these examples with your real work. The projects section renders
- * nothing at all when this array is empty, so it is safe to ship without it.
+ * Your projects. The section renders nothing at all when this array is empty,
+ * so it is safe to ship without any entries. Each item may carry an optional
+ * `href` (live) and `repo` (source) link.
  */
 export const projects: ProjectItem[] = [
   {
@@ -79,28 +80,5 @@ export const projects: ProjectItem[] = [
     tags: ["HTML", "CSS", "CSS Grid", "Responsive"],
     year: "2026",
     href: "https://carldiv.github.io/Bento-Grid/",
-  },
-  {
-    title: "Personal portfolio",
-    description:
-      "This site: a single-page portfolio with dark mode, a résumé page and a contact form that sends mail through Resend.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
-    year: "2026",
-    // example.com is the reserved placeholder domain — swap in your real URL.
-    href: "https://example.com",
-  },
-  {
-    title: "Business landing page",
-    description:
-      "A responsive marketing page — hero, service highlights and an enquiry form — designed and built end to end.",
-    tags: ["Web Design", "Responsive", "HTML/CSS"],
-    year: "2025",
-  },
-  {
-    title: "Brand and print design",
-    description:
-      "A small identity package: logo, colour palette and poster layout, exported as web-ready assets.",
-    tags: ["Graphic Design", "Branding"],
-    year: "2025",
   },
 ];
