@@ -19,6 +19,8 @@ export type ProjectItem = {
   tags: string[];
   /** Optional. Displayed at the top-right of the card. */
   year?: string;
+  /** Optional preview image served from /public, e.g. "/projects/hero.jpg". */
+  image?: string;
   /** Optional live URL. Omit it and the "Live site" link is not rendered. */
   href?: string;
   /** Optional source URL. Omit it and the "Source" link is not rendered. */
@@ -79,6 +81,7 @@ export const projects: ProjectItem[] = [
       "A responsive bento-grid landing page built for a Frontend Mentor challenge, laid out with CSS Grid and custom properties so it holds up from small phones to widescreen.",
     tags: ["HTML", "CSS", "CSS Grid", "Responsive"],
     year: "2026",
+    image: "/projects/bento-grid.jpg",
     href: "https://carldiv.github.io/Bento-Grid/",
   },
 ];
