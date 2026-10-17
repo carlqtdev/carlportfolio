@@ -59,7 +59,7 @@ export const skills: string[] = [
 export const education: EducationItem[] = [
   {
     credential: "Diploma in Information Technology",
-    institution: "Andres Soriano College",
+    institution: "Andres Soriano College of Bislig",
     period: "2023 — 2026",
   },
   {
