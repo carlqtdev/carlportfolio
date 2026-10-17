@@ -1,6 +1,7 @@
 import { ContactForm } from "@/components/contact-form";
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
+import { SocialLinks } from "@/components/social-links";
 import { profile } from "@/content/profile";
 
 export function Contact() {
@@ -31,6 +32,14 @@ export function Contact() {
                 Based in
               </p>
               <p className="mt-2 text-base text-ink">{profile.location}</p>
+            </div>
+
+            <div>
+              <p className="font-mono text-xs tracking-[0.12em] text-faint uppercase">
+                Elsewhere
+              </p>
+              {/* The email is already shown above, so leave it out here. */}
+              <SocialLinks className="mt-3" exclude={["mail"]} />
             </div>
           </div>
         </Reveal>

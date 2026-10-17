@@ -27,6 +27,18 @@ export type ProjectItem = {
   repo?: string;
 };
 
+/**
+ * Keys into the icon set in `components/icons.tsx`. Kept as strings so this
+ * file stays pure data and never imports a component.
+ */
+export type SocialIcon = "github" | "linkedin" | "mail";
+
+export type SocialItem = {
+  label: string;
+  href: string;
+  icon: SocialIcon;
+};
+
 export const profile = {
   name: "Carl Peñaranda",
   role: "Web Developer",
@@ -47,6 +59,15 @@ export const profile = {
   resumeHref: "/resume.pdf",
   email: "carlpenaranda7@gmail.com",
 };
+
+/**
+ * Links shown in the footer and the contact section. Add an entry and it
+ * appears in both — the `icon` field picks the mark from `components/icons.tsx`.
+ */
+export const socials: SocialItem[] = [
+  { label: "GitHub", href: "https://github.com/carldiv", icon: "github" },
+  { label: "Email", href: `mailto:${profile.email}`, icon: "mail" },
+];
 
 export const skills: string[] = [
   "Web Development",

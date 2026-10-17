@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { StructuredData } from "@/components/structured-data";
 import { ThemeProvider } from "@/components/theme-provider";
 import { defaultMetadata } from "@/lib/site";
 
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             {children}
           </main>
           <SiteFooter />
+          <StructuredData />
         </ThemeProvider>
       </body>
     </html>

@@ -6,6 +6,7 @@ import { Container } from "@/components/container";
 import { DownloadIcon } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { Section } from "@/components/section";
+import { SocialLinks } from "@/components/social-links";
 import { education, profile, skills } from "@/content/profile";
 
 export const metadata: Metadata = {
@@ -41,6 +42,8 @@ export default function ResumePage() {
               {profile.email}
             </ButtonAnchor>
           </div>
+
+          <SocialLinks className="mt-4" exclude={["mail"]} />
         </Reveal>
       </Container>
 

@@ -17,7 +17,7 @@ form. Built with Next.js, Tailwind CSS and TypeScript, and deployed on Vercel.
 | Animation    | `motion`, all of it disabled under `prefers-reduced-motion`  |
 | Contact form | Server Action + Resend, with a `mailto:` fallback            |
 | Fonts        | Geist and Geist Mono via `next/font`                         |
-| SEO          | Generated metadata, sitemap, robots.txt and an OG image      |
+| SEO          | Metadata, sitemap, robots.txt, OG image and JSON-LD       |
 
 ## Getting started
 
@@ -41,13 +41,19 @@ Open <http://localhost:3000>.
 ## Editing the content
 
 Everything personal lives in **`content/profile.ts`** — name, role, location,
-tagline, biography, skills, projects, education and email. The hero, about,
-projects, contact and résumé pages all read from it, so nothing else needs
-touching.
+tagline, biography, skills, projects, education, email and social links. The
+hero, about, projects, contact and résumé pages all read from it, so nothing
+else needs touching.
 
 Add more entries to the `projects` array as you build them. The projects
 section hides itself automatically if the array is empty, and there is still no
 employment history.
+
+The `socials` array drives the links in the footer, the contact section and the
+résumé header. Each entry needs a `label`, an `href` and an `icon`
+(`"github"`, `"linkedin"` or `"mail"`). It also feeds the `sameAs` field of the
+structured data, so keeping it current helps search engines connect the site to
+your profiles.
 
 Also replace **`public/resume.pdf`**, which is still a placeholder.
 
