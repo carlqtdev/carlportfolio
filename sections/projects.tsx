@@ -20,16 +20,27 @@ function ProjectCard({
   ].filter((link): link is { href: string; label: string } => link !== null);
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface transition-colors hover:border-line-strong hover:bg-elevated">
+    <article
+      className={cn(
+        "group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface transition-colors hover:border-line-strong hover:bg-elevated",
+        wide && "sm:flex-row",
+      )}
+    >
       {project.image ? (
-        <div className="relative aspect-[4/3] overflow-hidden border-b border-line bg-elevated">
+        <div
+          className={cn(
+            "relative aspect-[4/3] overflow-hidden border-b border-line bg-elevated",
+            wide &&
+              "sm:w-1/2 sm:shrink-0 sm:border-r sm:border-b-0",
+          )}
+        >
           <Image
             src={project.image}
             alt={`Preview of ${project.title}`}
             fill
             sizes={
               wide
-                ? "(min-width: 1024px) 960px, 100vw"
+                ? "(min-width: 1024px) 480px, 100vw"
                 : "(min-width: 1024px) 464px, (min-width: 640px) 50vw, 100vw"
             }
             className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
@@ -37,7 +48,12 @@ function ProjectCard({
         </div>
       ) : null}
 
-      <div className="flex flex-1 flex-col p-6">
+      <div
+        className={cn(
+          "flex flex-1 flex-col p-6",
+          wide && "sm:justify-center sm:p-8",
+        )}
+      >
         <div className="flex items-baseline justify-between gap-4">
           <h3 className="text-base font-semibold tracking-tight text-ink">
             {project.title}
