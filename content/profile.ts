@@ -73,6 +73,14 @@ export const education: EducationItem[] = [
  */
 export const projects: ProjectItem[] = [
   {
+    title: "Frontend Mentor — Bento grid",
+    description:
+      "A responsive bento-grid landing page built for a Frontend Mentor challenge, laid out with CSS Grid and custom properties so it holds up from small phones to widescreen.",
+    tags: ["HTML", "CSS", "CSS Grid", "Responsive"],
+    year: "2026",
+    href: "https://carldiv.github.io/Bento-Grid/",
+  },
+  {
     title: "Personal portfolio",
     description:
       "This site: a single-page portfolio with dark mode, a résumé page and a contact form that sends mail through Resend.",
