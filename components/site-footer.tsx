@@ -5,7 +5,7 @@ import { profile } from "@/content/profile";
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-line py-12">
+    <footer className="relative z-10 mt-auto border-t border-line py-12">
       <Container className="flex flex-col gap-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-muted">

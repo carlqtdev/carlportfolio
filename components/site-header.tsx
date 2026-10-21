@@ -73,7 +73,7 @@ export function SiteHeader() {
           aria-label={`${profile.name} — home`}
         >
           {profile.name}
-          <span className="text-accent">.</span>
+          <span className="spooky-dot text-accent">.</span>
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">

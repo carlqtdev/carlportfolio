@@ -22,7 +22,11 @@ export function ThemeToggle({ className }: { className?: string }) {
     : "system";
   const next = ORDER[(ORDER.indexOf(current) + 1) % ORDER.length];
 
-  const label = `Theme: ${LABELS[current]}. Switch to ${LABELS[next]}.`;
+  // The stored theme is unknown on the server, so keep the pre-hydration label
+  // generic. This also keeps the button's attributes identical through hydration.
+  const label = mounted
+    ? `Theme: ${LABELS[current]}. Switch to ${LABELS[next]}.`
+    : "Toggle theme";
 
   return (
     <button

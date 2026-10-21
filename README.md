@@ -1,7 +1,8 @@
 # Carl Peñaranda — Portfolio
 
-A single-page developer portfolio with a résumé page, dark mode and a contact
-form. Built with Next.js, Tailwind CSS and TypeScript, and deployed on Vercel.
+A single-page developer portfolio with a résumé page, Halloween-themed light
+and dark modes, and a contact form. Built with Next.js, Tailwind CSS and
+TypeScript, and deployed on Vercel.
 
 - **Home** — hero, about (biography and skills), projects, and a contact section.
 - **`/resume`** — education and skills, plus a downloadable PDF.
@@ -13,7 +14,7 @@ form. Built with Next.js, Tailwind CSS and TypeScript, and deployed on Vercel.
 | Framework    | Next.js 16 — App Router, Turbopack, Cache Components         |
 | Language     | TypeScript, strict                                           |
 | Styling      | Tailwind CSS v4 with OKLCH design tokens                     |
-| Theming      | `next-themes` — class strategy, system / light / dark        |
+| Theming      | `next-themes` — system / light / dark                       |
 | Animation    | `motion`, all of it disabled under `prefers-reduced-motion`  |
 | Contact form | Server Action + Resend, with a `mailto:` fallback            |
 | Fonts        | Geist and Geist Mono via `next/font`                         |
@@ -59,9 +60,13 @@ Also replace **`public/resume.pdf`**, which is still a placeholder.
 
 ### Branding and metadata
 
-- **Colours and fonts** — the token block at the top of `app/globals.css`. The
-  light and dark ramps are defined in OKLCH, so changing `--accent` in both
-  blocks re-themes the entire site.
+- **Colours and fonts** — the token block at the top of `app/globals.css`. Both
+  the light and dark ramps are Halloween-themed and defined in OKLCH, so
+  changing `--accent` in each block re-themes that mode across the entire site.
+- **Halloween scenery** — fog, cobwebs, spider and bats live in
+  `components/halloween-decor.tsx` and appear in both light and dark modes.
+  They are CSS-only, hidden from assistive technology, and static under
+  `prefers-reduced-motion`.
 - **Name, role, description, locale** — `lib/site.ts`.
 - **Canonical URL** — resolved automatically. On Vercel the build falls back to
   `VERCEL_PROJECT_PRODUCTION_URL`, so a `*.vercel.app` deployment is correct

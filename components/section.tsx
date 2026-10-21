@@ -34,7 +34,7 @@ export function Section({
         {title ? (
           <header className="mb-10 sm:mb-14">
             {eyebrow ? (
-              <p className="mb-3 font-mono text-xs tracking-[0.14em] text-accent uppercase">
+              <p className="spooky-eyebrow mb-3 font-mono text-xs tracking-[0.14em] text-accent uppercase">
                 {eyebrow}
               </p>
             ) : null}

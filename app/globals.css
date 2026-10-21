@@ -5,53 +5,60 @@
 
 /*
   Design tokens.
-  Neutral canvas + a single restrained teal accent. Values are in OKLCH so the
-  light and dark ramps stay perceptually even instead of drifting in hue.
+  Both themes share the same Halloween identity: candlelit parchment by day and
+  midnight violet after dark, with pumpkin orange and a witch-violet secondary.
+  Values are in OKLCH so the two ramps stay perceptually even.
 */
 :root {
   color-scheme: light;
 
-  --canvas: oklch(0.994 0.002 96);
-  --surface: oklch(0.975 0.003 96);
-  --elevated: oklch(0.955 0.004 96);
+  --canvas: oklch(0.973 0.014 82);
+  --surface: oklch(0.951 0.019 78);
+  --elevated: oklch(0.925 0.026 74);
 
-  --ink: oklch(0.235 0.008 250);
-  --muted: oklch(0.505 0.01 250);
-  --faint: oklch(0.635 0.009 250);
+  --ink: oklch(0.245 0.032 48);
+  --muted: oklch(0.49 0.03 48);
+  --faint: oklch(0.51 0.03 48);
 
-  --line: oklch(0.9 0.004 250);
-  --line-strong: oklch(0.83 0.006 250);
+  --line: oklch(0.885 0.026 70);
+  --line-strong: oklch(0.8 0.038 65);
 
-  --accent: oklch(0.52 0.088 205);
-  --accent-strong: oklch(0.45 0.09 205);
-  --accent-soft: oklch(0.955 0.022 205);
-  --accent-contrast: oklch(0.995 0 0);
-  --ring: oklch(0.58 0.095 205);
+  --accent: oklch(0.55 0.15 50);
+  --accent-strong: oklch(0.47 0.145 47);
+  --accent-soft: oklch(0.935 0.055 70);
+  --accent-contrast: oklch(0.99 0.005 85);
+  --ring: oklch(0.55 0.15 50);
 
-  --shadow-color: 250 12% 20%;
+  --accent-alt: oklch(0.48 0.12 305);
+  --accent-alt-soft: oklch(0.935 0.035 305);
+
+  --shadow-color: 40 30% 18%;
 }
 
 .dark {
   color-scheme: dark;
 
-  --canvas: oklch(0.168 0.007 258);
-  --surface: oklch(0.198 0.008 258);
-  --elevated: oklch(0.238 0.009 258);
+  --canvas: oklch(0.145 0.026 303);
+  --surface: oklch(0.185 0.032 303);
+  --elevated: oklch(0.225 0.038 303);
 
-  --ink: oklch(0.945 0.004 250);
-  --muted: oklch(0.735 0.009 250);
-  --faint: oklch(0.605 0.01 250);
+  --ink: oklch(0.95 0.018 85);
+  --muted: oklch(0.765 0.022 85);
+  --faint: oklch(0.63 0.024 85);
 
-  --line: oklch(0.285 0.009 258);
-  --line-strong: oklch(0.375 0.011 258);
+  --line: oklch(0.31 0.036 303);
+  --line-strong: oklch(0.42 0.05 303);
 
-  --accent: oklch(0.775 0.1 197);
-  --accent-strong: oklch(0.835 0.1 197);
-  --accent-soft: oklch(0.3 0.045 205);
-  --accent-contrast: oklch(0.168 0.007 258);
-  --ring: oklch(0.72 0.1 197);
+  --accent: oklch(0.77 0.155 55);
+  --accent-strong: oklch(0.84 0.14 62);
+  --accent-soft: oklch(0.285 0.078 47);
+  --accent-contrast: oklch(0.16 0.02 303);
+  --ring: oklch(0.8 0.15 55);
 
-  --shadow-color: 258 40% 2%;
+  --accent-alt: oklch(0.72 0.125 305);
+  --accent-alt-soft: oklch(0.285 0.065 305);
+
+  --shadow-color: 300 40% 2%;
 }
 
 @theme inline {
@@ -70,6 +77,8 @@
   --color-accent-strong: var(--accent-strong);
   --color-accent-soft: var(--accent-soft);
   --color-accent-contrast: var(--accent-contrast);
+  --color-accent-alt: var(--accent-alt);
+  --color-accent-alt-soft: var(--accent-alt-soft);
   --color-ring: var(--ring);
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
@@ -126,4 +135,167 @@
 
 @utility text-balance {
   text-wrap: balance;
+}
+
+/*
+  Halloween atmosphere.
+  Everything below is decorative: the page is fully usable without it, and the
+  reduced-motion block switches all of it to a static scene.
+*/
+
+body {
+  background-image:
+    radial-gradient(
+      58rem 42rem at 8% -12%,
+      color-mix(in oklab, var(--accent) 13%, transparent),
+      transparent 68%
+    ),
+    radial-gradient(
+      48rem 38rem at 96% 4%,
+      color-mix(in oklab, var(--accent-alt) 16%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      54rem 40rem at 50% 110%,
+      color-mix(in oklab, var(--accent-alt) 11%, transparent),
+      transparent 72%
+    );
+  background-repeat: no-repeat;
+}
+
+h1,
+h2 {
+  text-shadow: 0 0 36px color-mix(in oklab, var(--accent) 18%, transparent);
+}
+
+.spooky-dot {
+  filter: drop-shadow(0 0 7px color-mix(in oklab, var(--accent) 75%, transparent));
+}
+
+.spooky-eyebrow {
+  text-shadow: 0 0 18px color-mix(in oklab, var(--accent) 38%, transparent);
+}
+
+.spooky-card:hover {
+  border-color: color-mix(in oklab, var(--accent) 45%, var(--line-strong));
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--accent) 16%, transparent),
+    0 22px 60px -30px color-mix(in oklab, var(--accent) 60%, transparent);
+}
+
+.spooky-fog {
+  background:
+    radial-gradient(
+      42rem 26rem at 18% 30%,
+      color-mix(in oklab, var(--accent-alt) 14%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      36rem 24rem at 82% 62%,
+      color-mix(in oklab, var(--accent) 9%, transparent),
+      transparent 70%
+    );
+  filter: blur(28px);
+  animation: spooky-fog-drift 26s ease-in-out infinite alternate;
+}
+
+.spooky-vignette {
+  background: radial-gradient(
+    125% 95% at 50% 0%,
+    transparent 52%,
+    oklch(0.32 0.06 45 / 0.16) 100%
+  );
+}
+
+.dark .spooky-vignette {
+  background: radial-gradient(
+    125% 95% at 50% 0%,
+    transparent 52%,
+    oklch(0.08 0.02 303 / 0.55) 100%
+  );
+}
+
+.spooky-bat {
+  /* Base offsets keep the bats in frame when reduced motion disables the flight. */
+  transform: translate3d(8vw, 0, 0);
+  animation: spooky-bat-fly 44s linear infinite;
+  will-change: transform;
+}
+
+.spooky-bat svg {
+  transform-origin: center;
+  animation: spooky-bat-flap 0.9s ease-in-out infinite alternate;
+}
+
+.spooky-bat-1 {
+  top: 11%;
+  animation-delay: -5s;
+}
+
+.spooky-bat-2 {
+  top: 21%;
+  transform: translate3d(46vw, 0, 0);
+  animation-delay: -23s;
+  animation-duration: 56s;
+}
+
+.spooky-bat-3 {
+  top: 33%;
+  transform: translate3d(74vw, 0, 0);
+  animation-delay: -41s;
+  animation-duration: 66s;
+}
+
+.spooky-spider {
+  transform-origin: 50% 0;
+  animation: spooky-sway 7s ease-in-out infinite;
+}
+
+@keyframes spooky-bat-fly {
+  0% {
+    transform: translate3d(-14vw, 0, 0) rotate(-3deg);
+  }
+  50% {
+    transform: translate3d(50vw, -16px, 0) rotate(2deg);
+  }
+  100% {
+    transform: translate3d(112vw, 8px, 0) rotate(-2deg);
+  }
+}
+
+@keyframes spooky-bat-flap {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0.72);
+  }
+}
+
+@keyframes spooky-sway {
+  0%,
+  100% {
+    transform: rotate(-2.5deg);
+  }
+  50% {
+    transform: rotate(2.5deg);
+  }
+}
+
+@keyframes spooky-fog-drift {
+  from {
+    transform: translate3d(-2%, -1%, 0) scale(1.02);
+  }
+  to {
+    transform: translate3d(2%, 1%, 0) scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spooky-fog,
+  .spooky-bat,
+  .spooky-bat svg,
+  .spooky-spider {
+    animation: none;
+  }
 }
