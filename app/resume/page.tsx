@@ -10,7 +10,7 @@ import { SocialLinks } from "@/components/social-links";
 import { education, profile, skills } from "@/content/profile";
 
 export const metadata: Metadata = {
-  title: "Résumé",
+  title: "Resume",
   description: `Education and skills for ${profile.name}, ${profile.role}.`,
   alternates: { canonical: "/resume" },
 };
@@ -21,7 +21,7 @@ export default function ResumePage() {
       <Container as="header" className="pt-16 pb-12 sm:pt-20 sm:pb-16">
         <Reveal>
           <p className="spooky-eyebrow font-mono text-xs tracking-[0.14em] text-accent uppercase">
-            Résumé
+            Resume
           </p>
           <h1 className="mt-4 text-[2rem] font-semibold tracking-tight text-ink sm:text-[2.5rem]">
             {profile.name}

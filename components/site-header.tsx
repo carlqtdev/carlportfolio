@@ -16,7 +16,7 @@ const navigation = [
   { href: "/#contact", label: "Contact", sectionId: "contact" },
 ] as const;
 
-const mobileNavigation = [...navigation, { href: "/resume", label: "Résumé" }];
+const mobileNavigation = [...navigation, { href: "/resume", label: "Resume" }];
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -98,7 +98,7 @@ export function SiteHeader() {
               pathname === "/resume" ? "text-ink" : "text-muted hover:text-ink",
             )}
           >
-            Résumé
+            Resume
           </Link>
         </nav>
 

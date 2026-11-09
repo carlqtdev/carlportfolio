@@ -71,8 +71,10 @@ export const socials: SocialItem[] = [
 
 export const skills: string[] = [
   "Web Development",
-  "Web Design",
-  "Graphic Design",
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "Git",
   "Problem Solving",
   "Computer Literacy",
 ];

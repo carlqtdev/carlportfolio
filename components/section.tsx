@@ -28,8 +28,16 @@ export function Section({
     <section
       id={id}
       aria-labelledby={title ? headingId : undefined}
-      className={cn("scroll-mt-24 border-t border-line py-16 sm:py-24", className)}
+      className={cn(
+        "relative scroll-mt-24 py-16 sm:py-24",
+        className,
+      )}
     >
+      {/* Fades at the edges so the divider never reads as a hard seam. */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-line-strong to-transparent"
+      />
       <Container>
         {title ? (
           <header className="mb-10 sm:mb-14">

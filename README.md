@@ -22,8 +22,10 @@ as a developer.
 ## Skills
 
 - Web Development
-- Web Design
-- Graphic Design
+- HTML
+- CSS
+- JavaScript
+- Git
 - Problem Solving
 - Computer Literacy
 
