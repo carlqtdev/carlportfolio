@@ -14,7 +14,7 @@ export function SiteFooter() {
           <SocialLinks />
         </div>
         <p className="font-mono text-xs text-faint">
-          © <CopyrightYear />. Built with Next.js and Tailwind CSS.
+          © <CopyrightYear /> Carl Peñaranda. All rights reserved.
         </p>
       </Container>
     </footer>
