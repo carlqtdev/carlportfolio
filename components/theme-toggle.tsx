@@ -77,8 +77,10 @@ function Glyph({ theme }: { theme: (typeof ORDER)[number] }) {
 
   return (
     <svg {...common}>
-      <rect x="2.5" y="4" width="19" height="12.5" rx="2" />
-      <path d="M9 20.5h6M12 16.5v4" />
+      {/* Half sun / half moon: filled left half with rays reads as "auto". */}
+      <path d="M12 5.5a6.5 6.5 0 0 0 0 13Z" fill="currentColor" stroke="none" />
+      <circle cx="12" cy="12" r="6.5" />
+      <path d="M4.7 4.7 5.9 5.9M2.5 12h1.6M4.7 19.3l1.2-1.2" />
     </svg>
   );
 }
