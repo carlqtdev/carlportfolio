@@ -1,147 +1,56 @@
-# Carl Peñaranda — Portfolio
+# Carl Peñaranda
 
-A single-page developer portfolio with a résumé page, Halloween-themed light
-and dark modes, and a contact form. Built with Next.js, Tailwind CSS and
-TypeScript, and deployed on Vercel.
+**Web Developer** · Glan, Sarangani Province, Philippines
 
-- **Home** — hero, about (biography and skills), projects, and a contact section.
-- **`/resume`** — education and skills, plus a downloadable PDF.
+Open to web developer opportunities.
 
-## Stack
+- **Email:** [carlpenaranda7@gmail.com](mailto:carlpenaranda7@gmail.com)
+- **GitHub:** [github.com/carlqtdev](https://github.com/carlqtdev)
+- **Location:** Glan, Sarangani Province, Philippines
 
-| Concern      | Choice                                                      |
-| ------------ | ----------------------------------------------------------- |
-| Framework    | Next.js 16 — App Router, Turbopack, Cache Components         |
-| Language     | TypeScript, strict                                           |
-| Styling      | Tailwind CSS v4 with OKLCH design tokens                     |
-| Theming      | `next-themes` — system / light / dark                       |
-| Animation    | `motion`, all of it disabled under `prefers-reduced-motion`  |
-| Contact form | Server Action + Resend, with a `mailto:` fallback            |
-| Fonts        | Geist and Geist Mono via `next/font`                         |
-| SEO          | Metadata, sitemap, robots.txt, OG image and JSON-LD       |
+## About me
 
-## Getting started
+I'm a web developer currently finishing a **Diploma in Information Technology**
+at Andres Soriano College (2023–2026). My background covers both sides of a
+website: development on one side, web and graphic design on the other. That
+means I can take a design from a layout concept to a working, responsive page
+without handing it off halfway through.
 
-Requires Node 20.9 or newer.
+I'm looking for a role where I can build real projects, keep learning, and grow
+as a developer.
 
-```bash
-npm install
-npm run dev
-```
+## Skills
 
-Open <http://localhost:3000>.
+- Web Development
+- Web Design
+- Graphic Design
+- Problem Solving
+- Computer Literacy
 
-| Script              | Does                            |
-| ------------------- | ------------------------------- |
-| `npm run dev`       | Development server              |
-| `npm run build`     | Production build                |
-| `npm start`         | Serve the production build      |
-| `npm run lint`      | ESLint                          |
-| `npm run typecheck` | `tsc --noEmit`                  |
+## Education
 
-## Editing the content
+### Diploma in Information Technology
 
-Everything personal lives in **`content/profile.ts`** — name, role, location,
-tagline, biography, skills, projects, education, email and social links. The
-hero, about, projects, contact and résumé pages all read from it, so nothing
-else needs touching.
+**Andres Soriano College** — 2023–2026
 
-Add more entries to the `projects` array as you build them. The projects
-section hides itself automatically if the array is empty, and there is still no
-employment history.
+### Secondary School
 
-The `socials` array drives the links in the footer, the contact section and the
-résumé header. Each entry needs a `label`, an `href` and an `icon`
-(`"github"`, `"linkedin"` or `"mail"`). It also feeds the `sameAs` field of the
-structured data, so keeping it current helps search engines connect the site to
-your profiles.
+**Glan School of Arts and Trade** — 2022–2023
 
-Also replace **`public/resume.pdf`**, which is still a placeholder.
+## Projects
 
-### Branding and metadata
+### Frontend Mentor — Bento grid (2026)
 
-- **Colours and fonts** — the token block at the top of `app/globals.css`. Both
-  the light and dark ramps are Halloween-themed and defined in OKLCH, so
-  changing `--accent` in each block re-themes that mode across the entire site.
-- **Halloween scenery** — fog, cobwebs, spider and bats live in
-  `components/halloween-decor.tsx` and appear in both light and dark modes.
-  They are CSS-only, hidden from assistive technology, and static under
-  `prefers-reduced-motion`.
-- **Name, role, description, locale** — `lib/site.ts`.
-- **Canonical URL** — resolved automatically. On Vercel the build falls back to
-  `VERCEL_PROJECT_PRODUCTION_URL`, so a `*.vercel.app` deployment is correct
-  with no configuration. Set `NEXT_PUBLIC_SITE_URL` only when you attach a
-  custom domain — the value is inlined at build time, so changing it requires a
-  redeploy.
+A responsive bento-grid landing page built for a Frontend Mentor challenge.
+Laid out with CSS Grid and custom properties so it holds up from small phones to
+widescreen.
 
-## Contact form
+`HTML` · `CSS` · `CSS Grid` · `Responsive`
 
-Copy `.env.example` to `.env.local` and fill in the values:
+[Live site](https://carldiv.github.io/Bento-Grid/)
 
-| Variable             | Purpose                                              |
-| -------------------- | ---------------------------------------------------- |
-| `RESEND_API_KEY`     | API key from <https://resend.com/api-keys>            |
-| `CONTACT_TO_EMAIL`   | Where enquiries are delivered                         |
-| `CONTACT_FROM_EMAIL` | Verified sender, e.g. `Portfolio <hi@yourdomain.com>` |
+## Contact
 
-Without the Resend variables the form still renders and validates, but reports
-that it is not configured yet and points visitors at your email address instead.
-There is a honeypot field and a best-effort in-memory rate limit — see
-`app/actions/contact.ts` for the caveats.
-
-## Deploying
-
-1. Push to GitHub and import the repository at <https://vercel.com/new>.
-2. Deploy. Nothing needs configuring, because canonical URLs, the sitemap and
-   the OG image resolve themselves from `VERCEL_PROJECT_PRODUCTION_URL`.
-3. Add the Resend variables whenever you want the form to send mail.
-4. Set `NEXT_PUBLIC_SITE_URL` once you attach a custom domain, then redeploy.
-
-Or deploy straight from the command line:
-
-```bash
-npm i -g vercel
-vercel          # preview
-vercel --prod   # production
-```
-
-Every page is prerendered at build time, so changing content needs a
-redeployment. That is the right trade-off here — it keeps the site fully static.
-
-## Project structure
-
-```
-app/
-  layout.tsx              root layout: fonts, theme provider, header and footer
-  page.tsx                single-page home
-  resume/page.tsx         résumé
-  actions/contact.ts      contact Server Action
-  sitemap.ts robots.ts    generated SEO endpoints
-  opengraph-image.tsx     generated 1200x630 social card
-  globals.css             design tokens and base styles
-components/               UI primitives and shared components
-sections/                 the four home page sections
-content/profile.ts        your data — start here
-lib/                      site config, helpers and shared types
-```
-
-Environment files, `.vercel/` and local working notes (`info.md`, `skills/`) are
-gitignored and never leave this machine.
-
-## Accessibility
-
-- Keyboard-operable throughout, with a visible focus ring and a skip link.
-- Semantic landmarks, one `h1` per page, and labelled sections and form fields.
-- `aria-live` status messaging on the contact form.
-- All motion respects `prefers-reduced-motion`.
-- Colour tokens were chosen to clear WCAG AA for body text in both themes.
-
-## Notes on Next.js 16
-
-This project runs with Cache Components (`cacheComponents: true`) and Turbopack,
-both enabled by default in this version.
-
-- Content is authored as typed data imported at module scope, so pages prerender
-  statically without any runtime file reads.
-- Request-time values have to be isolated in a cached scope — see
-  `components/copyright-year.tsx` for the pattern.
+The best way to reach me is by email at
+[carlpenaranda7@gmail.com](mailto:carlpenaranda7@gmail.com), or through the
+contact form on my portfolio.
