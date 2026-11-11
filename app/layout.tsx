@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
-import { HalloweenDecor } from "@/components/halloween-decor";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StructuredData } from "@/components/structured-data";
@@ -45,9 +44,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           >
             Skip to content
           </a>
-          <HalloweenDecor />
           <SiteHeader />
-          <main id="main" className="relative z-10 flex-1">
+          <main id="main" className="flex-1">
             {children}
           </main>
           <SiteFooter />

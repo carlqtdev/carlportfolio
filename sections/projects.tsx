@@ -22,7 +22,7 @@ function ProjectCard({
   return (
     <article
       className={cn(
-        "spooky-card group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface transition-colors hover:border-line-strong hover:bg-elevated",
+        "group flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface transition-colors hover:border-line-strong hover:bg-elevated",
         wide && "sm:flex-row",
       )}
     >

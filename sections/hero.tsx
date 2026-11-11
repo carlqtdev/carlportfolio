@@ -1,11 +1,7 @@
 import { ButtonAnchor, ButtonLink } from "@/components/button";
 import { Container } from "@/components/container";
 import { HeroPortrait } from "@/components/hero-portrait";
-import {
-  ArrowRightIcon,
-  DownloadIcon,
-  PumpkinIcon,
-} from "@/components/icons";
+import { ArrowRightIcon, DownloadIcon } from "@/components/icons";
 import { Reveal } from "@/components/reveal";
 import { profile } from "@/content/profile";
 
@@ -31,7 +27,6 @@ export function Hero() {
                   />
                 </span>
                 {profile.available}
-                <PumpkinIcon className="h-3.5 w-3.5 shrink-0 text-accent" />
               </p>
             </Reveal>
 
